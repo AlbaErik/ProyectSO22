@@ -4,7 +4,7 @@
 #include <semaphore.h>
 #include <pthread.h>
 
-sem_t semA, semB, semC, semE, semD, semF, semAux;
+sem_t semA, semB, semC, semF, semAux;
 #define DELAY 0
 
 void *producirA(){
