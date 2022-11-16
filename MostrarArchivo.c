@@ -1,6 +1,5 @@
 #include <stdlib.h>
 #include <stdio.h>
-#include "MostrarArchivo.h"
 
 int main(int argc, char* argv[]){
 	
