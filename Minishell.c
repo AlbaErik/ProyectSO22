@@ -13,17 +13,16 @@
 
 char cwd[PATH_MAX];
 
-char* obtenerArgumentos(){
+char* obtenerComando(){
 
 	int indice = 0;
-	int tamanioBuf = TAMANIOBUFFER;
-	char* buffer = malloc(tamanioBuf * sizeof(char));
+	int tamanioBuffer = TAMANIOBUFFER;
+	char* buffer = malloc(tamanioBuffer * sizeof(char));
 	int caracter;
 	int seguir = TRUE;
 	int argc = 0;
 
 	while(seguir){
-
 		caracter = getchar();
 		if((caracter == EOF) || (caracter == '\n')){
 			buffer[indice++] = '\0';
@@ -36,8 +35,8 @@ char* obtenerArgumentos(){
 		}
 
 		//Incrementa tamaño buffer
-		if(indice >= tamanioBuf){
-			buffer = realloc(buffer, tamanioBuf*2);
+		if(indice >= tamanioBuffer){
+			buffer = realloc(buffer, tamanioBuffer*2);
 			if(!buffer){
 				printf("\nERROR en el buffer\n");
 				exit(EXIT_FAILURE);
@@ -64,7 +63,7 @@ int main(){
 
 	while(continuar){
 		//Obtiene los argumentos de consola y los almacena en el comando
-		comando = obtenerArgumentos();
+		comando = obtenerComando();
 		
 		if((comando != NULL) && (comando[0] != '\n')){
 

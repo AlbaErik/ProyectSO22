@@ -5,7 +5,7 @@
 #include <pthread.h>
 
 sem_t semA, semB, semC, semF, semAux;
-#define DELAY 0
+#define DELAY 0.5
 
 void *producirA(){
 	while(1){		

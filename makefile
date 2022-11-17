@@ -1,10 +1,41 @@
-compile: CrearArchivo.c CrearDirectorio.c EliminarDirectorio.c ListarDirectorio.c Minishell.c ModificarPermisosArchivo.c MostrarArchivo.c MostrarAyuda.c SalirShell.c
-	gcc CrearArchivo.c -c -Wall
-	gcc CrearDirectorio.c -c -Wall
-	gcc EliminarDirectorio.c -c -Wall
-	gcc ListarDirectorio.c -c -Wall
-	gcc ModificarPermisosArchivo.c -c -Wall
-	gcc MostrarArchivo.c -c -Wall
-	gcc MostrarAyuda.c -c -Wall
-	gcc SalirShell.c -c -Wall
-	gcc CrearArchivo.o CrearDirectorio.o EliminarDirectorio.o ListarDirectorio.o ModificarPermisosArchivo.o MostrarArchivo.o MostrarAyuda.o SalirShell.o Minishell.c -o Minishell -Wall
+plantaRecicladoPipes : PlantaDeRecicladoConPipes.c
+	@gcc PlantaDeRecicladoConPipes.c -o plantaRecicladoPipes
+
+plantaRecicladoColas : PlantaDeRecicladoConCola.c
+	@gcc PlantaDeRecicladoConCola.c -o plantaRecicladoColas
+	
+secuenciaHilos : sincronizacionA.c
+	@gcc sincronizacionA.c -o secuenciaHilos -lpthread
+
+secuenciaPipes : SecuenciaConPipes.c
+	@gcc SecuenciaConPipes.c -o secuenciaPipes -lpthread
+	
+puenteHilos : PuenteDeUnaSolaManoI.c
+	@gcc PuenteDeUnaSolaManoI.c -o puenteHilos -lpthread
+
+puenteColas : PuenteDeUnaSolaManoIII.c
+	@gcc PuenteDeUnaSolaManoIII.c -o puenteColas -lpthread
+
+miniShell : Minishell.c CrearArchivo CrearDirectorio EliminarDirectorio ListarDirectorio ModificarPermisosArchivo MostrarArchivo MostrarAyuda
+	@gcc Minishell.c -o miniShell
+
+CrearArchivo : CrearArchivo.c
+	@gcc CrearArchivo.c -o CrearArchivo
+	
+CrearDirectorio : CrearDirectorio.c
+	@gcc CrearDirectorio.c -o CrearDirectorio
+	
+EliminarDirectorio : EliminarDirectorio.c
+	@gcc EliminarDirectorio.c -o EliminarDirectorio
+	
+ListarDirectorio : ListarDirectorio.c
+	@gcc ListarDirectorio.c -o ListarDirectorio
+
+ModificarPermisosArchivo : ModificarPermisosArchivo.c
+	@gcc ModificarPermisosArchivo.c -o ModificarPermisosArchivo
+
+MostrarArchivo : MostrarArchivo.c
+	@gcc MostrarArchivo.c -o MostrarArchivo
+	
+MostrarAyuda : MostrarAyuda.c
+	@gcc MostrarAyuda.c -o MostrarAyuda
